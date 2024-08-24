@@ -33,12 +33,12 @@ async function main() {
 
 
     // Transfer ownership
-    const newAdminAddress = "0x4c728AD606d38A7Ce6f4766b47ec7f3949FD63E2"; // Replace with actual new admin address
+    const newAdminAddress = "0x4c728AD606d38A7Ce6f4766b47ec7f3949FD63E2"; 
     const tx2 = await updatedContractA.transferOwnership(newAdminAddress);
     await tx2.wait();
     console.log("Ownership transferred to", newAdminAddress);
 
-    // Verify new admin address
+    // Verification
     const newAdmin = await updatedContractA.owner();
     console.log("New admin address:", newAdmin);
 
@@ -47,7 +47,7 @@ async function main() {
     const tx3 = await updatedContractA.setValue(81);
     await tx3.wait();
     const finalValue = await updatedContractA.getValue();
-    console.log("Final value:", finalValue.toString()); // Should return 81
+    console.log("Final value:", finalValue.toString()); 
 }
 
 main().catch((error) => {
